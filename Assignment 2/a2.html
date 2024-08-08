@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang=""><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="author" content="Programming practices">
+  <title>COMP 2160 – Assignment 2</title>
+  <style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+</style>
+  <style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <style>
+body { margin: 20px; font-family: Lato,'Lucida Sans Unicode','Lucida Grande',sans-serif; line-height: 1.5em; } table { border-collapse: collapse; } table,th,td { border: 1px solid #ddd; padding: 10px; margin: 10px; } del, del > a, del > mark > a {color: lightgray; text-decoration-color: lightgray;} ins > a {text-decoration-line: underline; text-decoration-style: wavy} pre > code {background: black; color: white; padding: 1em; font-family: monospace; line-height: normal; display: block;}
+</style>
+</head><body><header id="title-block-header">
+<h1 class="title">COMP 2160 – Assignment 2</h1>
+<p class="author">Programming practices</p>
+<p class="date">Due March 08<sup>th</sup>, 2024 at 11:59pm</p>
+</header>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>You must follow the programming standards and best practices not doing so will result in a loss of marks. For this assignment, respect&nbsp;<strong>all</strong>&nbsp;standards and practices.</li>
+<li>You must accept and follow all of the academic integrity requirements for the course, including the Expectations for Individual Work in Computer Science.</li>
+<li>You must fill in an honesty declaration&nbsp;<strong>for this assignment before</strong>&nbsp;you submit your solution.</li>
+<li>Your assignment code must be handed in electronically on the CS Linux system as the assignment&nbsp;<code bgcolor="#FFFFE8">a2</code>; see the&nbsp;<a>hand-in guidelines</a>&nbsp;for details.</li>
+<li>The C code you submit must compile and run on that system without warnings or errors.</li>
+</ul>
+<h1 id="objectives">Objectives</h1>
+<ul>
+<li>Basic C: syntax, types, and functions</li>
+<li>More advanced C: arrays, strings, structs, and I/O</li>
+<li>Simple dynamic memory allocation</li>
+<li>Contracts</li>
+</ul>
+<h1 id="question-1-maze">Question 1: A simple database</h1>
+<p>Implement a simple&nbsp;<a href="https://en.wikipedia.org/wiki/Relational_database">relational database</a>&nbsp;in C, consisting of three tables related by two key fields. For this problem, the information consists of provincial and industrial data related by province abbreviation and an "industry code". For example:</p>
+<pre bgcolor="#FFFFD0"><code>   -+-----------+------+   +------+------+--------+----------+   +----------+-------------+
+    | Prov Name | Prov |   | Prov | Year | Income | Ind Code |   | Ind Code |    Name     |
+   -+-----------+------+   +------+------+--------+----------+   +----------+-------------+
+... |  Manitoba |  MB  |   |  ON  | 2017 |  35700 |  112500  |   |   116    |  Forestry   |
+   -+-----------+------+   +------+------+--------+----------+   +----------+-------------+
+    |  Ontario  |  ON  |   |  MB  | 2013 |  62200 |   116    |   |  112500  | Aquaculture |
+   -+-----------+------+   +------+------+--------+----------+   +----------+-------------+
+    |           |      |   |      |      |        |          |   |          |             |
+              ...                          ...                                ...</code></pre>
+<p>From these tables, we can determine, for example, that Manitoba's income from Forestry was 62200 (thousands of dollars) in 2013, and Ontario's income from Aquaculture was 35700 (thousands of dollars) in 2017.</p>
+<p>For this question you will read the data for each table from a different data file and store the result in an&nbsp;<strong>exactly-sized array of structs</strong>. To make it "exactly" sized you need to read each file first, count the number of lines, and then&nbsp;<strong>dynamically allocate</strong>&nbsp;an array of the correct size. Then read the data into the array. Values in the table are separated by commas (<a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV</a>&nbsp;without quotes). Note that the first line is "header" data indicating what value is contained in each column underneath. Ignore it while reading input. Define your C structs with appropriately-named and typed fields by consulting these headers.</p>
+<p>Once you have read the data from the tables, your program will read commands from standard input, one per line, and perform the requested processing. You will handle these commands:</p>
+<ul>
+<li><code bgcolor="#FFFFE8">FIND [Province],[Year],[Ind]</code>&nbsp;will find all the income for that named province, in the given year, for every industry whose name starts with the letters "Ind" (no spaces). For example, using the data above,&nbsp;<code bgcolor="#FFFFE8">FIND Ontario,2017,Aqua</code>&nbsp;will output&nbsp;<code bgcolor="#FFFFE8">Aquaculture $36</code>&nbsp;(one line of output for each matching industry). Output lines are in alphabetical order by industry.</li>
+<li><code bgcolor="#FFFFE8">SUM [Province] BY Year</code>&nbsp;will show the total income for the given province for every year in the data. For example, using the data above,&nbsp;<code bgcolor="#FFFFE8">SUM Manitoba BY Year</code>&nbsp;will output&nbsp;<code bgcolor="#FFFFE8">2013 $62200</code>&nbsp;(one line of output for every year). Output lines must be ordered by year.</li>
+<li><code bgcolor="#FFFFE8">SUM [Ind] IN [Year] BY Province</code>&nbsp;will show the total income for every industry whose name starts with the letters "Ind" (no spaces), in the given year, grouped by province. For example, using the data above,&nbsp;<code bgcolor="#FFFFE8">SUM A IN 2017 BY Province</code>&nbsp;will output&nbsp;<code bgcolor="#FFFFE8">Ontario 2017: $35700</code>, along with one line for each of the other provinces showing&nbsp;<code bgcolor="#FFFFE8">$0</code>&nbsp;as the income. Provinces must be in alphabetical order by name.</li>
+</ul>
+<p>Exit the program on end of file.</p>
+<h3 id="notes-1">Notes:</h3>
+<ul>
+<li>Data files for each of the three tables are found on UMLearn. Use those filenames. Data comes from&nbsp;<a href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3610048801">Statistics Canada</a>, slightly modified for this assignment.</li>
+<li>You must keep the tables as separate arrays of structs, as read from the file. Do not use parallel arrays, and do not "join" or "sum" the data before storing it.</li>
+<li>The data set you are given is incomplete. More data will be added closer to the assignment due date.</li>
+<li>The data sets are large! Use an efficient join technique if necessary. See lab #2 for implementation ideas.</li>
+<li>Handle all errors as gracefully as possible. Only exit if an error is not recoverable (e.g. input file not found). Blank or missing fields from an input file can be filled with empty string or zero. Errors in commands can print an error message, and continue to the next command.</li>
+<li>Assume a reasonable maximum length for each text field, by examining the text files.</li>
+<li>Assume a maximum length of 80 characters for input command lines.</li>
+<li>All commands are case-sensitive.</li>
+<li>All the C code for this question must be in a single source file.</li>
+<li>If you need to sort, use&nbsp;<code bgcolor="#FFFFE8">qsort()</code>&nbsp;from&nbsp;<code bgcolor="#FFFFE8">stdlib.h</code>. See the sample program&nbsp;<code bgcolor="#FFFFE8">qsort_demo.c</code>&nbsp;for an example of using it to sort structs.</li>
+</ul>
+<h1 id="question-1-maze">Question 2: Matrices</h1>
+<p>Write a C program that will read, print, transpose, and add matrices (2D arrays) of "double" values.</p>
+<p>When your program runs, it will read two matrices (<em>A</em>&nbsp;and&nbsp;<em>B</em>) in the format below from&nbsp;<em>standard input</em>. It will add the two matrices (<em>A + B</em>) and print the result, and then add the first matrix with the transpose of the second (<em>A + B<sup>T</sup></em>), and print that result. Output will be printed to&nbsp;<em>standard output</em>. Both results will be printed in the same format as the original input.</p>
+<p>The format of the matrices for both input and output is as follows:</p>
+<pre bgcolor="#FFFFD0"><code>2 3
+  173.5    77.9      0.2
+    0.0    15.0  15692.7</code></pre>
+<p>where the first line is the number of rows&nbsp;<em>r</em>&nbsp;followed by the number of columns&nbsp;<em>c</em>. Then there will be&nbsp;<em>r</em>&nbsp;lines of data, with&nbsp;<em>c</em>&nbsp;numbers on each line. Both&nbsp;<em>r</em>&nbsp;and&nbsp;<em>c</em>&nbsp;must be greater than zero. Values are separated by one or more spaces. A line may start with spaces.</p>
+<p>You can add matrices of different dimensions by&nbsp;<em>augmenting missing values with zeroes</em>&nbsp;as necessary. For example, if you are adding a matrix with 3 rows and 2 columns to a matrix with 2 rows and 4 columns, your output will have 3 rows and 4 columns.</p>
+<h3 id="style-requirements">Programming practices:</h3>
+<p>Your program&nbsp;<strong>must use contracts</strong>&nbsp;internally to validate parameters and state, such as the state of the two matrices, in any function that accesses that state.</p>
+<p>Your program&nbsp;<strong>must be broken into functions</strong>&nbsp;for performing major tasks, such as input, output, and addition. These functions must then use contracts.</p>
+<p>Your program&nbsp;<strong>must also implement</strong>&nbsp;functions for performing elementary tasks on matrices, including a "<strong>getter</strong>" and a "<strong>setter</strong>" for getting/changing a value at a specific row and column of a matrix. These functions must also use contracts.</p>
+<p>This means you must have&nbsp;<strong>at least six functions</strong>&nbsp;(with contracts) for performing tasks in your program, plus&nbsp;<code bgcolor="#FFFFE8">main()</code>, plus any functions you need to validate state.</p>
+<p>At each step of your implementation, focus on&nbsp;<strong>code safety</strong>: if at any point during development, your program crashes for any reason other than a failed assertion, consider what went wrong. What did you miss, and how could you have caught it?</p>
+<p>Your program must not crash or produce invalid results&nbsp;<strong>under any circumstances</strong>&nbsp;(except maybe cosmic rays, but don't try to blame those).</p>
+<h3 id="notes-2">Notes:</h3>
+<ul>
+<li>Assume maximum dimensions of&nbsp;<strong>100 rows</strong>&nbsp;by&nbsp;<strong>100 columns</strong>&nbsp;for all matrices. Do&nbsp;<strong>not</strong>&nbsp;use dynamic memory allocation for this question.</li>
+<li>For this question only, you can declare your matrices at&nbsp;<em>global scope</em>&nbsp;to avoid putting them on the stack. But you must still pass them as parameters to functions where appropriate.</li>
+<li>The program only needs to read and print a single set of results every time it is run. Do not repeat.</li>
+<li>If there is any error in the input, you can exit immediately with an error message.</li>
+<li>Print to one decimal place in the output. Use the format code&nbsp;<code bgcolor="#FFFFE8">%7.1f</code>&nbsp;to neatly print the double values. They will be displayed in rows and columns.</li>
+<li>Convert an input token from a string to a double using&nbsp;<code bgcolor="#FFFFE8">strtod()</code>. Check the result for errors!</li>
+<li>The format of the output is the same as the input; it should be possible to use the output as the input the next time the program is run.</li>
+<li>There is no extra data in the input. The input will be exactly one matrix followed immediately by another matrix with no additional text (including blank lines) in between.</li>
+<li>An input line can contain no more than 701 characters (including&nbsp;<code bgcolor="#FFFFE8">'\0'</code>).</li>
+<li>All the C code for this question must be in a single source file.</li>
+</ul>
+<p></p>
+<h1>Submitting your assignment</h1>
+<p>Create a directory called <code>comp2160-a2</code>, and place your <code>.c</code> files inside the directory name your files as Q1.c and Q2.c .</p>
+<p>Then run the command:</p>
+<div class="sourceCode" id="cb3">
+<pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">handin</span> 2160 a2 comp2160-a2<span class="op"></span><span class="op"></span><span class="op"></span><span class="op"></span></span></code></pre>
+</div>
+<ul>
+<li>You may <em>optionally</em> include a <code>README</code> file in your directory that explains anything unusual about compiling or running your programs.</li>
+<li>You may resubmit your assignment as many times as you want, but <strong>only the latest</strong> submission will be kept.</li>
+<li>We only accept homework submissions via <code>handin</code>. Please <strong>do not</strong> e-mail your homework to the instructor or TAs – it will be ignored.</li>
+<li>You <strong>must</strong> submit an Honesty Declaration (digitally on UM Learn). Assignments submitted without a corresponding Honesty Declaration <strong>will not be graded</strong>.</li>
+<li>We reserve the right to refuse to grade the homework, or to deduct marks if these instructions are not followed.</li>
+</ul>
+<h1 id="evaluation">Evaluation</h1>
+<h2 id="warnings">Warnings</h2>
+<p>The code you write should compile with <code>clang -Wall</code> <em>without</em> any warnings. A 1 point penalty will be applied to your score (after multiplication) for&nbsp;<em>each</em> warning that is emitted by the compiler.</p>
+<p><strong><a href="/d2l/lms/dropbox/user/folder_submit_files.d2l?db=222761&amp;grpid=0&amp;isprv=0&amp;bp=0&amp;ou=557555" title="Rubric">Rubric</a> .&nbsp;</strong></p>
+<p id="question-1"></p></body></html>

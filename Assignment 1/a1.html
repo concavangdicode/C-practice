@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html><head></head><body><h1 id="comp-2160-assignment-1" style="font-family: Helvetica, Arial, sans-serif; font-size: x-large; font-weight: bold; text-align: center; width: 100%; padding: 12px; background-color: #ffa080; color: #000080; margin: 0; border-bottom: thin solid;" align="center" width="100%" bgcolor="#FFA080">COMP 2160 Assignment 1</h1>
+<h2 style="font-family: Helvetica, Arial, sans-serif; font-size: large; font-weight: bold; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: #000080;">A1 due on February 09<sup>th</sup>&nbsp;at 11:59pm</h2>
+<h2 id="material-covered" style="font-family: Helvetica, Arial, sans-serif; font-size: large; font-weight: bold; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: #000080;">Material covered:</h2>
+<ul>
+<li>basic C: syntax, types, and functions</li>
+<li>more advanced C: arrays, strings, and I/O</li>
+<li>simple automated testing</li>
+</ul>
+<h2 id="notes" style="font-family: Helvetica, Arial, sans-serif; font-size: large; font-weight: bold; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: #000080;">Notes:</h2>
+<ul>
+<li>You must follow the programming standards and best practices not doing so will result in a loss of marks. In particular:
+<ul>
+<li>use C naming convention (under_scores, rather than camelCase); and</li>
+<li>do not introduce any global variables; only global CONSTANTS are allowed.</li>
+<li>All other style choices (indentation depth, brace placement, etc.) are up to you, as long as they are consistent.</li>
+</ul>
+</li>
+<li>You must accept and follow all of the academic integrity requirements for the course, including the Expectations for Individual Work in Computer Science</li>
+<li>Your assignment code must be handed in electronically on the CS Linux system as the assignment <code style="font-family: Consolas, Courier, 'Courier New', monospace; background-color: #ffffe8;" bgcolor="#FFFFE8">a1</code>; see the hand-in guidelines for details.</li>
+<li>The C code you submit must compile and run on that system without warnings or errors.</li>
+</ul>
+<h2 id="question-1" style="font-family: Helvetica, Arial, sans-serif; font-size: large; font-weight: bold; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: #000080;">Question 1</h2>
+<p>Convert the <code style="font-family: Consolas, Courier, 'Courier New', monospace; background-color: #ffffe8;" bgcolor="#FFFFE8">Duplicates.java</code> Java program into a C program that performs identical processing, including automated testing.</p>
+<h3 id="notes-1" style="font-size: medium; font-variant: small-caps; text-decoration: underline; color: #000080;">Notes:</h3>
+<ul>
+<li>Re-write the Java methods as equivalent C functions. The parameters you pass to the C functions may change.</li>
+<li>You can find an equivalent to <code style="font-family: Consolas, Courier, 'Courier New', monospace; background-color: #ffffe8;" bgcolor="#FFFFE8">Character.isWhitespace()</code> on the CS Linux system by entering <code style="font-family: Consolas, Courier, 'Courier New', monospace; background-color: #ffffe8;" bgcolor="#FFFFE8">man isalpha</code></li>
+<li>Use <strong>exactly</strong> the same test cases. Your program must pass <strong>exactly</strong> the same number of tests.</li>
+<li>All the C code for this question must be in a single source file.</li>
+</ul>
+<h2 id="question-2" style="font-family: Helvetica, Arial, sans-serif; font-size: large; font-weight: bold; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: #000080;">Question 2</h2>
+<p>Convert the recursive <code style="font-family: Consolas, Courier, 'Courier New', monospace; background-color: #ffffe8;" bgcolor="#FFFFE8">Solver.java</code> Java program into a C program that performs identical processing (i.e. still using recursion).</p>
+<p>Here is one sample data set that you can use to test the program.</p>
+<pre style="background-color: #ffffd0; border-top: dotted thin black; border-bottom: dotted thin black; margin-right: 20px; margin-left: 20px; padding: 1em 0.5em 1em 0.5em;" bgcolor="#FFFFD0"><code style="font-family: Consolas, Courier, 'Courier New', monospace; background-color: transparent;">2 2 1 3
+5 1 2 3 4 5 9
+1 2 3</code></pre>
+<h3 id="notes-2" style="font-size: medium; font-variant: small-caps; text-decoration: underline; color: #000080;">Notes:</h3>
+<ul>
+<li>File processing must use the "safe" C strategies described in class (at least, as safe as the sample program).</li>
+<li>Part of the problem is figuring out what the purpose of the code is, to come up with your own test data. Otherwise, treat it like a black box. The markers will test it on a larger data set, which you will not be given.</li>
+<li>The output from your C program must be <strong>identical</strong> to the output of the Java program for any given input. Your C program does not need to handle any input errors that are not also handled by the Java program.</li>
+<li>All the C code for this question must be in a single source file.</li>
+</ul>
+<h2 id="submitting-your-assignment">Submitting your assignment</h2>
+<p>Create a directory called <code>comp2160-a1</code>, and place your <code>.c</code> files inside the directory.</p>
+<p>Then run the command:</p>
+<p><code>handin 2160 a1 comp2160-a1</code></p>
+<ul>
+<li>You may <em>optionally</em> include a <code>README</code> file in your directory that explains anything unusual about compiling or running your programs.</li>
+<li>You may resubmit your assignment as many times as you want, but <strong>only the latest</strong> submission will be kept.</li>
+<li>We only accept homework submissions via <code>handin</code>. Please <strong>do not</strong> e-mail your homework to the instructor or TAs – it will be ignored and not graded.</li>
+<li>You <strong>must</strong> submit an Honesty Declaration (digitally on UM Learn). Assignments submitted without an Honesty Declaration <strong>will not be graded</strong>.</li>
+<li>We reserve the right to refuse to grade the homework, or to deduct marks if these instructions are not followed.</li>
+</ul>
+<p><a href="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=557555&amp;type=rubric&amp;rCode=UManitoba-2430690" target="_self">Rubric Assignment 1</a></p></body></html>

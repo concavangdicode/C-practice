@@ -1,0 +1,7 @@
+FIND Ontario,2017,Aqua
+FIND Manitoba,2017,R
+SUM Manitoba BY Year
+SUM Newfoundland and Labrador BY Year
+SUM New Brunswick BY Year
+SUM Pu IN 2017 BY Province
+SUM A IN 2017 BY Province 

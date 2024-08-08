@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html><head></head><body style="color: rgb(32, 33, 34); font-family: undefined;"><h1 id="comp-2160-assignment-1" style="font-family: Helvetica, Arial, sans-serif; font-size: x-large; font-weight: bold; text-align: center; width: 100%; padding: 12px; background-color: #ffa080; color: #000080; margin: 0; border-bottom: thin solid;" align="center" width="100%" bgcolor="#FFA080">COMP 2160 Assignment 1</h1>
+<h2 id="material-covered" style="font-family: Helvetica, Arial, sans-serif; font-size: large; font-weight: bold; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: #000080;">Material covered:</h2>
+<ul>
+<li>basic C: syntax, types, and functions</li>
+<li>more advanced C: arrays and strings</li>
+<li>simple automated testing</li>
+</ul>
+<h2 id="notes" style="font-family: Helvetica, Arial, sans-serif; font-size: large; font-weight: bold; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: #000080;">Notes:</h2>
+<ul>
+<li>You must follow the programming standards and best practices not doing so will result in a loss of marks. In particular:
+<ul>
+<li>use C naming convention (under_scores, rather than camelCase); and</li>
+<li>do <strong>not</strong> introduce any global variables; only global CONSTANTS are allowed.</li>
+<li>All other style choices (indentation depth, brace placement, etc.) are up to you, as long as they are consistent.</li>
+</ul>
+</li>
+<li>All the C code for each question must be in a single source file: submit one <code style="font-family: Consolas, Courier, 'Courier New', monospace; background-color: #ffffe8; white-space: pre-wrap;" bgcolor="#FFFFE8">.c</code> file for each question). Include the question number in the filename.</li>
+<li>You must accept and follow all of the academic integrity requirements for the course, including the Expectations for Individual Work in Computer Science.</li>
+<li>You must fill in an honesty declaration <strong>for this assignment before</strong> you submit your solution.</li>
+<li>Your assignment code must be handed in electronically on the CS Linux system (aviary) as the assignment&nbsp;<code style="font-family: Consolas, Courier, 'Courier New', monospace; background-color: #ffffe8; white-space: pre-wrap;" bgcolor="#FFFFE8">fall2023-a1</code>; see the <a>hand-in guidelines</a> for details. No other assignment submission method will be accepted.</li>
+<li>The C code you submit must compile and run on that system without warnings or errors.</li>
+</ul>
+<h2 id="question-1-credit-card-checker" style="font-family: Helvetica, Arial, sans-serif; font-size: large; font-weight: bold; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: #000080;">Question 1: Credit Card Checker</h2>
+<p style="text-align: center;"><em>This question is worth 30% of the assignment mark.</em></p>
+<p>Translate the program <code style="font-family: Consolas, Courier, 'Courier New', monospace; background-color: #ffffe8; white-space: pre-wrap;" bgcolor="#FFFFE8">CreditCardChecker.java</code> to C, including automated testing. You can use the code from <code style="font-family: Consolas, Courier, 'Courier New', monospace; background-color: #ffffe8; white-space: pre-wrap;" bgcolor="#FFFFE8">ccc.c</code> as a starting point, where the code for testing has already been translated.</p>
+<h3 id="notes-1" style="font-size: medium; font-variant: small-caps; text-decoration: underline; color: #000080;">Notes:</h3>
+<ul>
+<li>Even though the code can trivially be collapsed into a single function, use <strong>the same</strong> functions for the C implementation as in the Java code.</li>
+<li>There is no <code style="font-family: Consolas, Courier, 'Courier New', monospace; background-color: #ffffe8; white-space: pre-wrap;" bgcolor="#FFFFE8">Math.abs()</code> in C. You can implement its behaviour in this program in any appropriate fashion. Simple is OK.</li>
+<li>Use <strong>exactly</strong> the same test cases. Your program must pass <strong>exactly</strong> the same tests. The C output must be identical to the Java version.</li>
+</ul>
+<h2 id="question-2-longest-duplicate-subsequence" style="font-family: Helvetica, Arial, sans-serif; font-size: large; font-weight: bold; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: #000080;">Question 2: Longest Duplicate Subsequence</h2>
+<p style="text-align: center;"><em>This question is worth 30% of the assignment mark.</em></p>
+<p>This problem will be familiar to those of you who have taken COMP 1020 in Winter 2023. Translate the posted version of the model solution from that term <code style="font-family: Consolas, Courier, 'Courier New', monospace; background-color: #ffffe8; white-space: pre-wrap;" bgcolor="#FFFFE8">LDS.java</code> to C, including automated testing.</p>
+<h3 id="notes-2" style="font-size: medium; font-variant: small-caps; text-decoration: underline; color: #000080;">Notes:</h3>
+<ul>
+<li>Re-write <strong>all</strong> of the Java functions as equivalent C functions. The parameters you pass to the C functions may change.</li>
+<li>There are no <code style="font-family: Consolas, Courier, 'Courier New', monospace; background-color: #ffffe8; white-space: pre-wrap;" bgcolor="#FFFFE8">Math.max()</code> or <code style="font-family: Consolas, Courier, 'Courier New', monospace; background-color: #ffffe8; white-space: pre-wrap;" bgcolor="#FFFFE8">Arrays.toString()</code> equivalents in C. You can implement their behaviour in this program in any appropriate fashion. Simple is OK.</li>
+<li>You can use fancy syntax to declare the test arrays, or you can construct different array variables for each test case.</li>
+<li>Use <strong>exactly</strong> the same test cases. Your program must pass <strong>exactly</strong> the same tests. The C output must be identical to the Java version.</li>
+</ul>
+<h2 id="question-3-word-reverser" style="font-family: Helvetica, Arial, sans-serif; font-size: large; font-weight: bold; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: #000080;">Question 3: Word Reverser</h2>
+<p style="text-align: center;"><em>This question is worth 40% of the assignment mark.</em></p>
+<p>Translate the <code style="font-family: Consolas, Courier, 'Courier New', monospace; background-color: #ffffe8; white-space: pre-wrap;" bgcolor="#FFFFE8">Reverser.java</code> Java program into a C program that performs identical processing, including automated testing.</p>
+<h3 id="notes-3" style="font-size: medium; font-variant: small-caps; text-decoration: underline; color: #000080;">Notes:</h3>
+<ul>
+<li>Re-write the Java functions as equivalent C functions. The parameters you pass to the C functions may change.</li>
+<li>The Java functions are very "non C"-like. You can change the reversing function to either reverse the string in-place (modifying the incoming string), or be passed a destination string as a parameter.</li>
+<li>There is no <code style="font-family: Consolas, Courier, 'Courier New', monospace; background-color: #ffffe8; white-space: pre-wrap;" bgcolor="#FFFFE8">StringBuilder</code> in C. You can replace the calls to <code style="font-family: Consolas, Courier, 'Courier New', monospace; background-color: #ffffe8; white-space: pre-wrap;" bgcolor="#FFFFE8">.reverse()</code> with your own loop, which you may want to place in a separate function.</li>
+<li><em>IMPORTANT:</em> Read the two points above carefully. Don't try to write your solution using the C equivalent of string concatenation or <code style="font-family: Consolas, Courier, 'Courier New', monospace; background-color: #ffffe8; white-space: pre-wrap;" bgcolor="#FFFFE8">.substring()</code>!</li>
+<li>Assume a maximum string length of 256 characters, <strong>counting</strong> the <code style="font-family: Consolas, Courier, 'Courier New', monospace; background-color: rgb(255, 255, 232); white-space: pre-wrap;" bgcolor="#FFFFE8">\0</code></li>
+<li>You can find an equivalent to <code style="font-family: Consolas, Courier, 'Courier New', monospace; background-color: #ffffe8; white-space: pre-wrap;" bgcolor="#FFFFE8">Character.isLetterOrDigit()</code> on the CS Linux system by entering <code style="font-family: Consolas, Courier, 'Courier New', monospace; background-color: #ffffe8; white-space: pre-wrap;" bgcolor="#FFFFE8">man isalnum</code></li>
+<li>The two variables used to count tests can be global variables. Don't add any other globals.</li>
+<li>Use <strong>exactly</strong> the same test cases. Your program must pass <strong>exactly</strong> the same number of tests. Note that one test will fail in each of the Java and C programs!</li>
+</ul></body></html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html><head></head><body><h1 style="font-family: Helvetica, Arial, sans-serif; font-size: large; font-weight: bold; border-bottom: 2px solid rgb(0, 0, 128); text-align: center;"><span style="font-size: 32px;">Assignment 3&nbsp;</span></h1>
+<h2 style="font-family: Helvetica, Arial, sans-serif; font-size: large; font-weight: bold; border-bottom: 2px solid rgb(0, 0, 128);">A3 due on March 22th at 11:59pm</h2>
+<h2 id="material-covered" style="border-bottom-color: #000080; border-bottom-style: solid; border-bottom-width: 2px; font-family: Helvetica, Arial, sans-serif; font-size: large; font-weight: bold;">Material covered:</h2>
+<ul>
+<li>contracts</li>
+<li>dynamic memory allocation</li>
+<li>unit testing</li>
+<li>separate compilation</li>
+<li>Makefile</li>
+</ul>
+<h2 id="notes" style="border-bottom-color: #000080; border-bottom-style: solid; border-bottom-width: 2px; font-family: Helvetica, Arial, sans-serif; font-size: large; font-weight: bold;">Notes:</h2>
+<ul>
+<li>You must follow the programming standards and best practices not doing so will result in a loss of marks. For this assignment, respect <strong>all</strong> standards and practices.</li>
+<li>You must accept and follow all of the academic integrity requirements for the course, including the Expectations for Individual Work in Computer Science.</li>
+<li>You must fill in an honesty declaration <strong>for this assignment before</strong> you submit your solution.</li>
+<li>Your assignment code must be handed in electronically on the CS Linux system as the assignment <code style="background-color: #ffffe8; font-family: Consolas, Courier, 'Courier New', monospace;" bgcolor="#FFFFE8">a3</code>; see the <a href="./">hand-in guidelines</a> for details.</li>
+<li>The C code you submit must compile and run on that system without warnings or errors.</li>
+<li><strong>For this assignment you must submit a <code style="background-color: #ffffe8; font-family: Consolas, Courier, 'Courier New', monospace;" bgcolor="#FFFFE8">readme</code> file. This file must include, clearly, the three <code style="background-color: #ffffe8; font-family: Consolas, Courier, 'Courier New', monospace;" bgcolor="#FFFFE8">Targets</code>on the Makefile to compile all and each of your question 1 and question 2. The marker must be able to copy and paste these lines into&nbsp;<code style="background-color: #ffffe8; font-family: Consolas, Courier, 'Courier New', monospace;" bgcolor="#FFFFE8">aviary</code> in order to compile your questions.&nbsp;</strong></li>
+</ul>
+<h2 id="question-1-an-indexed-list" style="border-bottom-color: #000080; border-bottom-style: solid; border-bottom-width: 2px; font-family: Helvetica, Arial, sans-serif; font-size: large; font-weight: bold;">Question 1: An indexed list</h2>
+<div style="text-align: center;"><em>This question is worth 80% of the assignment mark.</em></div>
+<p>A problem with linked lists is that linear search is an expensive operation. One way to reduce the number of nodes that need to be searched for a given value is to use an <strong>index</strong>, which is just an array of pointers to certain important nodes. Rather than searching from the start, finding a node involves looking up the correct node in the index and starting the search from there.</p>
+<p>Download the file <code style="background-color: #ffffe8; font-family: Consolas, Courier, 'Courier New', monospace;" bgcolor="#FFFFE8">ordered_list.c</code> from UMLearn, which contains a normal (not indexed) linked-list implementation of a list of strings in alphabetical order. For this question, you will do the following <em>four</em> things:</p>
+<ol type="1">
+<li>Reorganize the code to use <strong>separate compilation</strong>. Keep as much detail as possible private to the implementation file (like the contents of structures).</li>
+<li>Convert the list to an <strong>indexed list</strong>. There will be 256 entries in the index, based on the ASCII code of first character of the string. In an empty list, all are <code style="background-color: #ffffe8; font-family: Consolas, Courier, 'Courier New', monospace;" bgcolor="#FFFFE8">NULL</code>. Adding items updates the index. See below for a picture.</li>
+<li>Add <strong>contracts</strong> to the code. Include all pre- and postconditions that must be met, and also a function that tests invariants.</li>
+<li>Write a main program (in a separate source file) that <strong>thoroughly tests</strong> your indexed list implementation.</li>
+</ol>
+<p>This is a sample of what a portion of the indexed list structure may look like:</p>
+<div style="text-align: center;"><img src="a3list.png"></div>
+<p>Your code will keep the same operations from the original ordered list, passing the same parameters. Requirement #2 will change them as follows:</p>
+<ul>
+<li>The <code style="background-color: #ffffe8; font-family: Consolas, Courier, 'Courier New', monospace;" bgcolor="#FFFFE8">insert</code> operation will start searching for the correct insertion location by looking up the first character of the <code style="background-color: #ffffe8; font-family: Consolas, Courier, 'Courier New', monospace;" bgcolor="#FFFFE8">new_string</code> in the index.</li>
+<li>The <code style="background-color: #ffffe8; font-family: Consolas, Courier, 'Courier New', monospace;" bgcolor="#FFFFE8">find</code> operation will also start searching for the <code style="background-color: #ffffe8; font-family: Consolas, Courier, 'Courier New', monospace;" bgcolor="#FFFFE8">target</code> at the closest possible spot by looking up its first character in the index.</li>
+<li>The <code style="background-color: #ffffe8; font-family: Consolas, Courier, 'Courier New', monospace;" bgcolor="#FFFFE8">count</code> operation will keep a count of the list size in the list structure, rather than using a loop to count it.</li>
+<li>The <code style="background-color: #ffffe8; font-family: Consolas, Courier, 'Courier New', monospace;" bgcolor="#FFFFE8">print</code> operation will print both the index (first) and the list. When it prints the index, it will print the ASCII code, the character, and the contents of the node that it points to. If an entry is <code style="background-color: #ffffe8; font-family: Consolas, Courier, 'Courier New', monospace;" bgcolor="#FFFFE8">NULL</code>, do not print anything.</li>
+</ul>
+<p>The other operations remain the same. The code must keep using <code style="background-color: #ffffe8; font-family: Consolas, Courier, 'Courier New', monospace;" bgcolor="#FFFFE8">total_num_traversals</code> in <code style="background-color: #ffffe8; font-family: Consolas, Courier, 'Courier New', monospace;" bgcolor="#FFFFE8">insert</code> and <code style="background-color: #ffffe8; font-family: Consolas, Courier, 'Courier New', monospace;" bgcolor="#FFFFE8">find</code> to count the number of linked list traversals performed. This number will track "how much better" the indexed list implementation is, compared to the regular ordered list implementation.</p>
+<p>For requirement #3, in addition to implementing the contract using assertions, you need to include adequate coding to ensure that a program using this list will not crash if the assertions are turned off. Note that to turn off assertions you can compile with <code style="background-color: #ffffe8; font-family: Consolas, Courier, 'Courier New', monospace;" bgcolor="#FFFFE8">-DNDEBUG</code>.</p>
+<p>The main program for requirement #4 must run a <strong>thorough</strong> suite of unit tests to ensure that the List correctly handles all operations. Use both a white-box and black-box approach to designing tests. Include tests for all cases (typical, edge, special, etc.). Use an appropriate test harness to indicate whether each test has passed or failed, and count the number of successful and failed tests. Do not use assertions to verify test results. Check the number of traversals as you go. The marker will use the output of your main program to judge how thorough your tests are.</p>
+<p><strong>Make sure the name of the source code file containing the main program (from requirement #4) includes the characters <code style="background-color: #ffffe8; font-family: Consolas, Courier, 'Courier New', monospace;" bgcolor="#FFFFE8">q1</code> so that the marker can easily find it.</strong></p>
+<h2 id="question-2-concordance" style="border-bottom-color: #000080; border-bottom-style: solid; border-bottom-width: 2px; font-family: Helvetica, Arial, sans-serif; font-size: large; font-weight: bold;">Question 2: Concordance</h2>
+<div style="text-align: center;"><em>This question is worth 20% of the assignment mark.</em></div>
+<p>Using your indexed list from question 1, implement a <a href="https://en.wikipedia.org/wiki/Concordance_(publishing)">concordance</a>. This will store every word found in a document, without duplicates. Do this by writing a new main program that will:</p>
+<ol type="1">
+<li>read text from standard input,</li>
+<li>tokenize into words using whitespace and common punctuation (like <code style="background-color: #ffffe8; font-family: Consolas, Courier, 'Courier New', monospace;" bgcolor="#FFFFE8">.,!?</code>),</li>
+<li>store the words in an ordered list without duplicates (use <code style="background-color: #ffffe8; font-family: Consolas, Courier, 'Courier New', monospace;" bgcolor="#FFFFE8">find</code> then <code style="background-color: #ffffe8; font-family: Consolas, Courier, 'Courier New', monospace;" bgcolor="#FFFFE8">insert</code>),</li>
+<li>print the concordance and its size once the input has reached end-of-file (use <code style="background-color: #ffffe8; font-family: Consolas, Courier, 'Courier New', monospace;" bgcolor="#FFFFE8">print</code>, then print <code style="background-color: #ffffe8; font-family: Consolas, Courier, 'Courier New', monospace;" bgcolor="#FFFFE8">size</code>, then print <code style="background-color: #ffffe8; font-family: Consolas, Courier, 'Courier New', monospace;" bgcolor="#FFFFE8">traversals</code>), and</li>
+<li>conclude by freeing the list (use <code style="background-color: #ffffe8; font-family: Consolas, Courier, 'Courier New', monospace;" bgcolor="#FFFFE8">destroy</code>).</li>
+</ol>
+<p><strong>Make sure the name of the source code file containing the main program includes the characters <code style="background-color: #ffffe8; font-family: Consolas, Courier, 'Courier New', monospace;" bgcolor="#FFFFE8">q2</code> so that the marker can easily find it.</strong></p>
+<h2 id="submitting-your-assignment">Submitting your assignment</h2>
+<p>Create a directory called&nbsp;<code>comp2160-a3</code>, and place your files inside the directory.</p>
+<p>Then run the command:</p>
+<p><code>handin 2160 a3 comp2160-a3</code></p>
+<ul>
+<li>You should&nbsp;include a&nbsp;<code>README</code> file in your directory that explains how to compile and run your programs.</li>
+<li>You may resubmit your assignment as many times as you want, but&nbsp;<strong>only the latest</strong>&nbsp;submission will be kept.</li>
+<li>We only accept homework submissions via&nbsp;<code>handin</code>. Please&nbsp;<strong>do not</strong>&nbsp;e-mail your homework to the instructor or TAs – it will be ignored and not graded.</li>
+<li>You&nbsp;<strong>must</strong>&nbsp;submit an Honesty Declaration (digitally on UM Learn). Assignments submitted without an Honesty Declaration&nbsp;<strong>will not be graded</strong>.</li>
+<li>We reserve the right to refuse to grade the homework, or to deduct marks if these instructions are not followed.</li>
+</ul>
+<h2>Rubric:</h2>
+<p><a href="/d2l/lms/dropbox/user/folder_submit_files.d2l?db=222762&amp;grpid=0&amp;isprv=0&amp;bp=0&amp;ou=557555">https://universityofmanitoba.desire2learn.com/d2l/lms/dropbox/user/folder_submit_files.d2l?db=222762&amp;grpid=0&amp;isprv=0&amp;bp=0&amp;ou=557555</a></p>
+<p></p></body></html>

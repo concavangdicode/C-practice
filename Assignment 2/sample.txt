@@ -1,0 +1,112 @@
+Aquaculture [BS112500] $36
+
+Radio and television broadcasting [BS515100] $105
+Radio and television broadcasting [BS51510] $105
+Rail transportation [BS482000] $1218
+Rail transportation [BS48200] $1218
+Railroad rolling stock manufacturing [BS336500] $3
+Railroad rolling stock manufacturing [BS33650] $3
+Recreational vehicle (RV) parks recreational camps [BS721A00] $77
+Religious organizations [NP813100] $248
+Religious organizations [NP81310] $248
+Rental and leasing services (except automotive equipment) [BS532A00] $256
+Rental and leasing services and lessors [BS53A000] $313
+Rental and leasing services of non-financial assets [BS53B00] $462
+Repair and maintenance (except automotive) [BS811A00] $180
+Repair and maintenance [BS81100] $781
+Repair construction [BS23D000] $1650
+Repair construction [BS23D00] $1650
+Repair construction [BS23D] $1650
+Residential building construction [BS23A000] $3735
+Residential building construction [BS23A00] $3735
+Residential building construction [BS23A] $3735
+Resin synthetic rubber and artificial and synthetic fibres [BS325200] $9
+Resin synthetic rubber and fibres and paint manufacturing [BS325B00] $86
+Retail trade (except cannabis) [BS4AA000] $5708
+Retail trade (except cannabis) [BS4AA00] $5708
+Retail trade [BS4A0] $5750
+Rubber product manufacturing [BS326200] $55
+Rubber product manufacturing [BS32620] $55
+
+2000 $237654
+2001 $247652
+2002 $256298
+2003 $264406
+2004 $280004
+2005 $292822
+2006 $318841
+2007 $343588
+2008 $363920
+2009 $374722
+2010 $389937
+2011 $411221
+2012 $431649
+2013 $451479
+2014 $467526
+2015 $473340
+2016 $478764
+2017 $504880
+
+2000 $94987
+2001 $97478
+2002 $107976
+2003 $118300
+2004 $126748
+2005 $140949
+2006 $153397
+2007 $174184
+2008 $193915
+2009 $174418
+2010 $199077
+2011 $228618
+2012 $233160
+2013 $250966
+2014 $245181
+2015 $225208
+2016 $233372
+2017 $232779
+
+2000 $162725
+2001 $166812
+2002 $172225
+2003 $180414
+2004 $194341
+2005 $207167
+2006 $216025
+2007 $228747
+2008 $243045
+2009 $245686
+2010 $264068
+2011 $279431
+2012 $277592
+2013 $282104
+2014 $276874
+2015 $272319
+2016 $274381
+2017 $293884
+
+Alberta 2017: $13856
+British Columbia 2017: $20278
+Canada 2017: $130545
+Manitoba 2017: $2753
+New Brunswick 2017: $4234
+Newfoundland and Labrador 2017: $1531
+Nova Scotia 2017: $2820
+Ontario 2017: $51620
+Prince Edward Island 2017: $247
+Quebec 2017: $30150
+Saskatchewan 2017: $2665
+
+Alberta 2017: $115408
+British Columbia 2017: $105018
+Canada 2017: $836202
+Manitoba 2017: $28330
+New Brunswick 2017: $9378
+Newfoundland and Labrador 2017: $6597
+Nova Scotia 2017: $13918
+Ontario 2017: $352503
+Prince Edward Island 2017: $2531
+Quebec 2017: $175316
+Saskatchewan 2017: $20436
+
+Program terminated normally.
